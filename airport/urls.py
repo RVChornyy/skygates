@@ -1,8 +1,17 @@
 from django.urls import path
 
-from airport.views import index, PassengerCreateView, PassengerDetailView, \
-    ReservationCreateView, ReservationDetailView, ReservationUpdateView, ReservationDeleteView, AirportListView, \
-    FlightListView, AircraftListView, AircraftDetailView, PassengerUpdateView
+from airport.views import (index,
+                           PassengerCreateView,
+                           PassengerDetailView,
+                           ReservationCreateView,
+                           ReservationDetailView,
+                           ReservationUpdateView,
+                           ReservationDeleteView,
+                           AirportListView,
+                           FlightListView,
+                           AircraftListView,
+                           AircraftDetailView,
+                           PassengerUpdateView)
 
 urlpatterns = [
     path("", index, name="index"),

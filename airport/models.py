@@ -14,7 +14,9 @@ class Aircraft(models.Model):
     type = models.CharField(max_length=63)
     call_sign = models.CharField(max_length=6, unique=True)
     capacity = models.IntegerField()
-    airline = models.ForeignKey(Airline, on_delete=models.CASCADE, related_name="aircraft")
+    airline = models.ForeignKey(Airline,
+                                on_delete=models.CASCADE,
+                                related_name="aircraft")
 
     class Meta:
         verbose_name = "aircraft"
@@ -37,8 +39,12 @@ class Airport(models.Model):
 
 class Flight(models.Model):
     number = models.CharField(max_length=10, unique=True)
-    origin = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="departures")
-    destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="arrivals")
+    origin = models.ForeignKey(Airport,
+                               on_delete=models.CASCADE,
+                               related_name="departures")
+    destination = models.ForeignKey(Airport,
+                                    on_delete=models.CASCADE,
+                                    related_name="arrivals")
     airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
     aircraft = models.ManyToManyField(Aircraft, related_name="flights")
 
@@ -54,8 +60,12 @@ class Passenger(AbstractUser):
 
 
 class Reservation(models.Model):
-    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name="reservations")
-    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE, related_name="reservations")
+    flight = models.ForeignKey(Flight,
+                               on_delete=models.CASCADE,
+                               related_name="reservations")
+    passenger = models.ForeignKey(Passenger,
+                                  on_delete=models.CASCADE,
+                                  related_name="reservations")
 
     def __str__(self):
         return f"{self.flight}"

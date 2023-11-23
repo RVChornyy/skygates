@@ -4,9 +4,19 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from airport.forms import PassengerCreateForm, ReservationCreateForm, ReservationUpdateForm, AirportSearchForm, \
-    FlightSearchForm, AircraftSearchForm, PassengerUpdateForm
-from airport.models import Airline, Aircraft, Airport, Passenger, Reservation, Flight
+from airport.forms import (PassengerCreateForm,
+                           ReservationCreateForm,
+                           ReservationUpdateForm,
+                           AirportSearchForm,
+                           FlightSearchForm,
+                           AircraftSearchForm,
+                           PassengerUpdateForm)
+from airport.models import (Airline,
+                            Aircraft,
+                            Airport,
+                            Passenger,
+                            Reservation,
+                            Flight)
 
 
 @login_required
@@ -41,10 +51,12 @@ class PassengerDetailView(LoginRequiredMixin, generic.DetailView):
 class PassengerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Passenger
     form_class = PassengerUpdateForm
-    # success_url = reverse_lazy("airport:passenger-detail")
 
     def get_success_url(self):
-        return reverse("airport:passenger-detail", kwargs={"pk": self.request.user.id})
+        return reverse(
+            "airport:passenger-detail",
+            kwargs={"pk": self.request.user.id}
+        )
 
 
 class ReservationCreateView(LoginRequiredMixin, generic.CreateView):
@@ -54,7 +66,9 @@ class ReservationCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         reservation_instance = form.save(commit=False)
-        reservation_instance.passenger = Passenger.objects.get(id=self.request.user.id)
+        reservation_instance.passenger = Passenger.objects.get(
+            id=self.request.user.id
+        )
         reservation_instance.save()
         return super().form_valid(form)
 
@@ -68,14 +82,16 @@ class ReservationUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = ReservationUpdateForm
 
     def get_success_url(self):
-        return reverse("airport:passenger-detail", kwargs={"pk": self.request.user.id})
+        return reverse("airport:passenger-detail",
+                       kwargs={"pk": self.request.user.id})
 
 
 class ReservationDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Reservation
 
     def get_success_url(self):
-        return reverse("airport:passenger-detail", kwargs={"pk": self.request.user.id})
+        return reverse("airport:passenger-detail",
+                       kwargs={"pk": self.request.user.id})
 
 
 class AirportListView(LoginRequiredMixin, generic.ListView):
