@@ -6,6 +6,9 @@ from django.urls import reverse
 class Airline(models.Model):
     name = models.CharField(max_length=63)
 
+    def __str__(self):
+        return self.name
+
 
 class Aircraft(models.Model):
     type = models.CharField(max_length=63)
@@ -39,14 +42,20 @@ class Flight(models.Model):
     airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
     aircraft = models.ManyToManyField(Aircraft, related_name="flights")
 
+    def __str__(self):
+        return f"{self.number} from {self.origin} to {self.destination}"
+
 
 class Passenger(AbstractUser):
     passport = models.CharField(max_length=255, unique=True)
 
     def get_absolute_url(self):
-        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
+        return reverse("airport:passenger-detail", kwargs={"pk": self.pk})
 
 
 class Reservation(models.Model):
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name="reservations")
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE, related_name="reservations")
+
+    def __str__(self):
+        return f"{self.flight}"
