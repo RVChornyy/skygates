@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    This is the list of our flying machines:
+  </h1>
+  <form method="get" action="">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-outline-primary">
+    <a href="{% url "airport:aircraft-list" %}" class="btn btn-outline-secondary">Clear</a>
+  </form>
+
+  {% if aircraft_list %}
+    <ul>
+      {% for aircraft in aircraft_list %}
+        <li>{{ aircraft }} (<a href="{% url "airport:aircraft-detail" pk=aircraft.id%}">{{ aircraft.call_sign }}</a>)</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Sorry, there are no aircraft of such a type.</p>
+  {% endif %}
+{% endblock %}

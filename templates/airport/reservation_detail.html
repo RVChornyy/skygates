@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if reservation.passenger.id == user.id %}
+    <p>Flight number {{ reservation }}</p>
+    <br>
+    {% for reserv in reservation.flight.aircraft.all %}
+      <p>Aircraft: {{ reserv }}</p>
+    {% endfor %}
+    <br>
+    <a href="{% url "airport:reservation-delete" pk=reservation.id %}" class="btn btn-danger">
+      Delete reservation
+    </a>
+
+    <a href="{% url "airport:reservation-update" pk=reservation.id %}" class="btn btn-secondary link-to-page">
+      Update reservation
+    </a>
+  {% else %}
+    <p><strong style="color: crimson">Sorry, this page is unavailable!</strong></p>
+  {% endif %}
+{% endblock %}
