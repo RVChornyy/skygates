@@ -4,8 +4,8 @@
   {% if reservation.passenger.id == user.id %}
     <p>Flight number {{ reservation }}</p>
     <br>
-    {% for reserv in reservation.flight.aircraft.all %}
-      <p>Aircraft: {{ reserv }}</p>
+    {% for airplane in reservation.flight.aircraft.all %}
+      <p>Aircraft: <a href="{% url "airport:aircraft-detail" pk=airplane.id %}">{{ airplane }}</a></p>
     {% endfor %}
     <br>
     <a href="{% url "airport:reservation-delete" pk=reservation.id %}" class="btn btn-danger">

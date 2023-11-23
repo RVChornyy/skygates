@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    {% block title %}<title>Skygates</title>{% endblock %}
+  {% block title %}<title>Skygates</title>{% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -10,30 +10,30 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
           crossorigin="anonymous">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2">
+      <div class="col-sm-2">
 
-            {% block sidebar %}
-                {% include "includes/sidebar.html" %}
-            {% endblock %}
+        {% block sidebar %}
+          {% include "includes/sidebar.html" %}
+        {% endblock %}
 
         </div>
         <div class="col-sm-10 ">
 
-            {% block content %}{% endblock %}
+          {% block content %}{% endblock %}
 
-            {% block pagination %}
-                {% include "includes/pagination.html" %}
-            {% endblock %}
+          {% block pagination %}
+            {% include "includes/pagination.html" %}
+          {% endblock %}
 
         </div>
     </div>
-</div>
+  </div>
 </body>
 
 </html>
