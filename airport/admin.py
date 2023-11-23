@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from airport.models import Passenger, Airline, Aircraft, Flight, Airport
+from airport.models import Passenger, Airline, Aircraft, Flight, Airport, Reservation
 
 
 @admin.register(Passenger)
@@ -37,3 +37,5 @@ admin.site.register(Airline)
 admin.site.register(Flight)
 
 admin.site.register(Airport)
+
+admin.site.register(Reservation)
