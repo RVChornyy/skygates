@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    There are the gates to your journey:
+  </h1>
+  <form method="get" action="">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-outline-primary">
+    <a href="{% url "airport:airport-list" %}" class="btn btn-outline-secondary">Clear</a>
+  </form>
+
+  {% if airport_list %}
+    <table class="table">
+      <tr>
+        <th>ICAO designator:</th>
+        <th>City:</th>
+
+      </tr>
+
+      {% for airport in airport_list %}
+        <tr>
+          <td>
+              {{ airport.icao_designator }}
+          </td>
+          <td>
+              {{ airport.city }}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no airports found.</p>
+  {% endif %}
+{% endblock %}

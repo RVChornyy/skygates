@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    Available routes:
+  </h1>
+  <form method="get" action="">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-outline-primary">
+    <a href="{% url "airport:flight-list" %}" class="btn btn-outline-secondary">Clear</a>
+    <a href="{% url "airport:reservation-create" %}" class="btn btn-outline-primary">Create reservation</a>
+  </form>
+
+  {% if flight_list %}
+    <table class="table">
+      <tr>
+        <th>Flight number:</th>
+        <th>Departure airport:</th>
+        <th>Destination airport:</th>
+        <th>Airline:</th>
+        <th>Aircraft:</th>
+
+      </tr>
+
+      {% for flight in flight_list %}
+        <tr>
+          <td>
+            {{ flight.number }}
+            {% for res in flight.reservations.all %}
+              {% if user.id == res.passenger.id %}
+                <a href="{% url "airport:reservation-detail" pk=res.id  %}">(My reservation)</a>
+              {% endif %}
+            {% endfor %}
+          </td>
+          <td>
+              {{ flight.origin }}
+          </td>
+          <td>
+              {{ flight.destination }}
+          </td>
+          <td>
+              {{ flight.airline.name }}
+          </td>
+          <td>
+              {% for aircraft in flight.aircraft.all %}
+                {{ aircraft }}
+              {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no routes found.</p>
+  {% endif %}
+{% endblock %}

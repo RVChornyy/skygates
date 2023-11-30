@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if passenger.id == user.id %}
+    <h3>
+      Wellcome to your personal information page!
+    </h3>
+    <br>
+    <h4>
+    Your reservations:
+    </h4>
+    {% for reservation in passenger.reservations.all %}
+      <a href="{% url "airport:reservation-detail" pk=reservation.id %}">reservation {{ reservation.id }}</a>
+      <p>{{ reservation.flight}} {{ reservation.passenger }}</p>
+    {% endfor %}
+    <a href="{% url "airport:reservation-create" %}" class="btn btn-outline-primary">Create new reservation</a>
+  {% else %}
+    <p><strong style="color: crimson">Sorry, this page is unavailable!</strong></p>
+  {% endif %}
+  <h4>Personal info:</h4>
+    <ul>
+      <li>Username: {{ user.username }}</li>
+      <li>First name: {{ user.first_name }}</li>
+      <li>Last name: {{ user.last_name }}</li>
+      <li>Passport: {{ user.passport }}</li>
+    </ul>
+{#    <a href="{% url 'airport:passenger-delete' pk=driver.id %}" class="btn btn-danger link-to-page">#}
+{#      Delete#}
+{#    </a>#}
+
+    <a href="{% url 'airport:passenger-update' pk=passenger.id %}" class="btn btn-secondary link-to-page">
+      Update your account
+    </a>
+
+{% endblock %}

@@ -1,0 +1,452 @@
+[
+{
+  "model": "airport.airline",
+  "pk": 1,
+  "fields": {
+    "name": "Windrose"
+  }
+},
+{
+  "model": "airport.airline",
+  "pk": 2,
+  "fields": {
+    "name": "UIA"
+  }
+},
+{
+  "model": "airport.airline",
+  "pk": 3,
+  "fields": {
+    "name": "SkyUp"
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 1,
+  "fields": {
+    "type": "Embraer 190",
+    "call_sign": "UR-EMA",
+    "capacity": 100,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 2,
+  "fields": {
+    "type": "Embraer 190",
+    "call_sign": "UR-EMB",
+    "capacity": 100,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 3,
+  "fields": {
+    "type": "Embraer 190",
+    "call_sign": "UR-EMC",
+    "capacity": 100,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 4,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-PSS",
+    "capacity": 180,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 5,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-PSM",
+    "capacity": 180,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 6,
+  "fields": {
+    "type": "Boeing 737-900",
+    "call_sign": "UR-PSG",
+    "capacity": 195,
+    "airline": 2
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 7,
+  "fields": {
+    "type": "Embraer 145",
+    "call_sign": "UR-DNR",
+    "capacity": 45,
+    "airline": 1
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 8,
+  "fields": {
+    "type": "Embraer 145",
+    "call_sign": "UR-DPB",
+    "capacity": 45,
+    "airline": 1
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 9,
+  "fields": {
+    "type": "Airbus A320",
+    "call_sign": "UR-WRK",
+    "capacity": 175,
+    "airline": 1
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 10,
+  "fields": {
+    "type": "Airbus A320",
+    "call_sign": "UR-WRJ",
+    "capacity": 175,
+    "airline": 1
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 11,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-SQO",
+    "capacity": 180,
+    "airline": 3
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 12,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-SQE",
+    "capacity": 180,
+    "airline": 3
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 13,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-SQP",
+    "capacity": 180,
+    "airline": 3
+  }
+},
+{
+  "model": "airport.aircraft",
+  "pk": 14,
+  "fields": {
+    "type": "Boeing 737-800",
+    "call_sign": "UR-SQG",
+    "capacity": 180,
+    "airline": 3
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 1,
+  "fields": {
+    "icao_designator": "UKBB",
+    "city": "Boryspil"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 2,
+  "fields": {
+    "icao_designator": "UKKK",
+    "city": "Kyiv"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 3,
+  "fields": {
+    "icao_designator": "UKDD",
+    "city": "Dnipro"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 4,
+  "fields": {
+    "icao_designator": "UKOO",
+    "city": "Odesa"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 5,
+  "fields": {
+    "icao_designator": "UKLL",
+    "city": "Lviv"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 6,
+  "fields": {
+    "icao_designator": "UKLI",
+    "city": "Ivano-Frankivsk"
+  }
+},
+{
+  "model": "airport.airport",
+  "pk": 7,
+  "fields": {
+    "icao_designator": "UKHH",
+    "city": "Kharkiv"
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 1,
+  "fields": {
+    "number": "AUI-001",
+    "origin": 3,
+    "destination": 1,
+    "airline": 2,
+    "aircraft": [
+      5
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 2,
+  "fields": {
+    "number": "AUI-002",
+    "origin": 1,
+    "destination": 3,
+    "airline": 2,
+    "aircraft": [
+      6
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 3,
+  "fields": {
+    "number": "AUI-003",
+    "origin": 4,
+    "destination": 1,
+    "airline": 2,
+    "aircraft": [
+      7
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 4,
+  "fields": {
+    "number": "AUI-004",
+    "origin": 1,
+    "destination": 4,
+    "airline": 2,
+    "aircraft": [
+      8
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 5,
+  "fields": {
+    "number": "AUI-005",
+    "origin": 5,
+    "destination": 1,
+    "airline": 2,
+    "aircraft": [
+      9
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 6,
+  "fields": {
+    "number": "AUI-006",
+    "origin": 1,
+    "destination": 5,
+    "airline": 2,
+    "aircraft": [
+      10
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 7,
+  "fields": {
+    "number": "WRC-001",
+    "origin": 6,
+    "destination": 2,
+    "airline": 1,
+    "aircraft": [
+      1
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 8,
+  "fields": {
+    "number": "WRC-002",
+    "origin": 2,
+    "destination": 6,
+    "airline": 1,
+    "aircraft": [
+      2
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 9,
+  "fields": {
+    "number": "WRC-003",
+    "origin": 7,
+    "destination": 1,
+    "airline": 1,
+    "aircraft": [
+      3
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 10,
+  "fields": {
+    "number": "WRC-004",
+    "origin": 1,
+    "destination": 7,
+    "airline": 1,
+    "aircraft": [
+      4
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 11,
+  "fields": {
+    "number": "SKY-001",
+    "origin": 7,
+    "destination": 2,
+    "airline": 3,
+    "aircraft": [
+      11
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 12,
+  "fields": {
+    "number": "SKY-002",
+    "origin": 2,
+    "destination": 7,
+    "airline": 3,
+    "aircraft": [
+      12
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 13,
+  "fields": {
+    "number": "SKY-003",
+    "origin": 3,
+    "destination": 2,
+    "airline": 3,
+    "aircraft": [
+      13
+    ]
+  }
+},
+{
+  "model": "airport.flight",
+  "pk": 14,
+  "fields": {
+    "number": "SKY-004",
+    "origin": 2,
+    "destination": 3,
+    "airline": 3,
+    "aircraft": [
+      14
+    ]
+  }
+},
+{
+  "model": "airport.passenger",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$W6qkW7fcApQzNJonYKMdyV$bhI40irU0MPG+iduT680HkUES5Wpod9fns3ksrtn8Gs=",
+    "last_login": "2023-11-25T18:33:59.959Z",
+    "is_superuser": true,
+    "username": "Rost",
+    "first_name": "",
+    "last_name": "",
+    "email": "rv4@ukr.net",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-11-22T12:03:39.534Z",
+    "passport": "VN011031",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "airport.reservation",
+  "pk": 3,
+  "fields": {
+    "flight": 11,
+    "passenger": 1
+  }
+},
+{
+  "model": "airport.reservation",
+  "pk": 4,
+  "fields": {
+    "flight": 3,
+    "passenger": 1
+  }
+},
+{
+  "model": "airport.reservation",
+  "pk": 5,
+  "fields": {
+    "flight": 14,
+    "passenger": 1
+  }
+},
+{
+  "model": "airport.reservation",
+  "pk": 6,
+  "fields": {
+    "flight": 7,
+    "passenger": 1
+  }
+}
+]

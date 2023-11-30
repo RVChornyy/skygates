@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <table class="table">
+      <tr>
+        <th>Aircraft type:</th>
+        <th>Callsign:</th>
+        <th>Capacity:</th>
+        <th>Airline:</th>
+
+      </tr>
+      <tr>
+        <td>
+          {{ aircraft.type }}
+        </td>
+        <td>
+          {{ aircraft.call_sign }}
+        </td>
+        <td>
+          {{ aircraft.capacity }}
+        </td>
+        <td>
+          {{ aircraft.airline.name }}
+        </td>
+    </table>
+    <img src="/static/images/{{ aircraft.call_sign }}.jpg" class="background" />
+{% endblock %}
