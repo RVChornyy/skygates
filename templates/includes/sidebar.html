@@ -1,0 +1,16 @@
+<ul class="sidebar-nav list-group">
+  {% if user.is_authenticated %}
+    <li class="list-group-item">Passenger: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+  {% else %}
+    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    <li class="list-group-item"><a href="{% url 'airport:passenger-create'%}">Register passenger</a></li>
+  {% endif %}
+
+  <br>
+
+  <li class="list-group-item"><a href="{% url 'airport:airport-list' %}">Airports</a></li>
+  <li class="list-group-item"><a href="{% url 'airport:flight-list' %}">All routes</a></li>
+  <li class="list-group-item"><a href="{% url 'airport:aircraft-list' %}">All aircraft</a></li>
+{#  <li class="list-group-item"><a href="{% url 'airport:manufacturer-list' %}">All manufacturers</a></li>#}
+{#</ul>#}
